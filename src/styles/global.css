@@ -1,0 +1,127 @@
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dark: #9A7A30;
+  --deep-purple: #1A0A2E;
+  --mid-purple: #2D1854;
+  --light-purple: #3D2466;
+  --cream: #F5EFE0;
+  --cream-dark: #EDE3CC;
+  --text-light: #F0E8D5;
+  --text-muted: #B8A8C8;
+  --white: #FFFFFF;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-gold: 0 0 40px rgba(201, 168, 76, 0.15);
+  --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--deep-purple);
+  color: var(--text-light);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--deep-purple); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+/* Selection */
+::selection { background: var(--gold); color: var(--deep-purple); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(201, 168, 76, 0.6); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+
+/* Section padding */
+.section-pad {
+  padding: 100px 0;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Gold text */
+.text-gold {
+  color: var(--gold);
+}
+
+/* Ornament dots */
+.ornament::before, .ornament::after {
+  content: '✦';
+  color: var(--gold);
+  font-size: 12px;
+  margin: 0 8px;
+}
+
+@media (max-width: 768px) {
+  .section-pad { padding: 70px 0; }
+  html { font-size: 15px; }
+}
